@@ -1,0 +1,60 @@
+package Analizador;
+
+import java.util.LinkedList;
+import java_cup.runtime.Symbol;
+
+
+
+parser code
+{:
+
+    LinkedList<String> errores = null;
+
+    public void setErrores(LinkedList<String> lista) {
+    }
+
+    public void syntax_error(Symbol s)
+    {        
+        
+    }
+
+    public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception
+    {      
+    }
+
+    
+:}
+
+action code
+{:
+:}
+
+terminal String var, print, cor_open, cor_close, dotcoma, asig, 
+plus, minus, mult, div, par_open, par_close, 
+num, id, strng,igual,menor,mayor,menor_igu,mayor_igu,or,and,nigual,inc,dec,iff;
+
+non terminal String E;
+
+precedence left or;
+precedence left and;
+precedence left igual,nigual;
+precedence left menor, mayor,menor_igu,mayor_igu;
+precedence left plus, minus;
+precedence left mult, div;
+precedence left inc, dec;
+
+
+start with E;
+
+
+E ::=                 E:a plus E:b                  {: System.out.print("+") ;:}
+                    | E:a minus E:b                 {:System.out.print("-") ; :}
+                    | E:a mult  E:b                 {: System.out.print("*") ; :}
+                    | par_open E:x par_close        {: :}
+                    | num:s                         {:System.out.print(s); :}
+                    ;
+
+
+
+
+
