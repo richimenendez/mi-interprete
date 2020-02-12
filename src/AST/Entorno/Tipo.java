@@ -69,4 +69,12 @@ public class Tipo {
     public boolean isError(){
          return this.tipo==tipo.ERROR;
     }
+    
+    public boolean isDouble(){
+        return this.tipo==tipo.DOUBLE;
+    }
+    
+    public boolean isString(){
+        return this.tipo==tipo.STRING;
+    }
 }

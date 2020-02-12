@@ -7,7 +7,9 @@ package AST.Expresion.Operaciones;
 
 import AST.Entorno.Tipo;
 import AST.Entorno.Valor;
+import AST.Entorno.Valores.ValorDouble;
 import AST.Entorno.Valores.ValorEntero;
+import AST.Entorno.Valores.ValorError;
 import AST.Expresion.Expresion;
 import AST.Expresion.Operacion;
 /**
@@ -29,19 +31,26 @@ public class Suma extends Operacion{
         Valor a = this.left.ejecutar();
         Valor b = this.right.ejecutar();
         
-        if(a.tipo.isError()) return null;
-        if(b.tipo.isError()) return null;
+        if(a.tipo.isError()) return a;
+        if(b.tipo.isError()) return b;
         
         Tipo type = Tipo.operarTipos(a, b, '+');
         if(type.isError())
-            return null;
+            return new ValorError("Tipos incompatibles en la Suma!!!");
         if(type.isEntero())
-            if( a instanceof ValorEntero && b instanceof ValorEntero)
             return new ValorEntero(
                     ((ValorEntero)a).getValor() + ((ValorEntero)b).getValor()
             );
+        if(type.isDouble())
+            if( a instanceof ValorEntero && b instanceof ValorEntero)
+            return new ValorDouble(
+                    ((ValorEntero)a).getValor() + ((ValorEntero)b).getValor()
+            );
         else
-            return null;
+            return new ValorError("Tipos incompatibles en la Suma!!!");
+          
+        return new ValorError("Tipos incompatibles en la Suma!!!");
+        
         
     }
 

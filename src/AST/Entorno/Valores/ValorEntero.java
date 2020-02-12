@@ -27,4 +27,12 @@ public class ValorEntero extends Valor {
     public String getCadena(){
         return ""+this.valor;
     }
+    
+    public static int doubleToEntero(Valor val){
+        if(val instanceof ValorEntero){
+            return ((ValorEntero) val).getValor();
+        }else{
+            return (int)
+        }
+    }
 }

@@ -5,8 +5,15 @@
         <group>
             <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/RAnalizador/Flexito.jflex</file>
             <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/AST/Entorno/Tipo.java</file>
+            <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/AST/Nodo.java</file>
             <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/RAnalizador/Sins.cup</file>
             <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/AST/Entorno/Valor.java</file>
+            <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/AST/Expresion/Expresion.java</file>
+            <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/AST/Expresion/Entero.java</file>
+            <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/AST/Entorno/Valores/ValorEntero.java</file>
+            <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/RAnalizador/Sins.bat</file>
+            <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/AST/Expresion/Operaciones/Suma.java</file>
+            <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/AST/Expresion/Operacion.java</file>
             <file>file:/C:/Users/Richi/OneDrive/Documents/NetBeansProjects/JavaApplication4/src/javaapplication4/IDE.java</file>
         </group>
     </open-files>
