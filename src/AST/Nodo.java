@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package AST;
-
+import AST.Entorno.*;
 /**
  *
  * @author Richi
  */
 public interface Nodo {
-    public void ejecutar();
+    public Valor ejecutar();
     public String graficar();
 }

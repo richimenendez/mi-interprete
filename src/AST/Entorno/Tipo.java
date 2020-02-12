@@ -66,4 +66,7 @@ public class Tipo {
          return this.tipo==tipo.ENTERO;
     }
     
+    public boolean isError(){
+         return this.tipo==tipo.ERROR;
+    }
 }

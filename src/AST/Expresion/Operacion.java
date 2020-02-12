@@ -11,8 +11,8 @@ import AST.*;
  */
 public abstract class Operacion extends Expresion{
 
-    Expresion left;
-    Expresion right;
+    public Expresion left;
+    public Expresion right;
     
     public Operacion(Expresion left_, Expresion right_){
         this.left = left_;
@@ -24,5 +24,7 @@ public abstract class Operacion extends Expresion{
         this.right = null;
         
     }
+    
+    
     
 }

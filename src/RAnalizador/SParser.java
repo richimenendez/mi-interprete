@@ -7,6 +7,11 @@ package RAnalizador;
 
 import java.util.LinkedList;
 import java_cup.runtime.Symbol;
+import AST.*;
+import AST.Entorno.*;
+import AST.Entorno.Valores.ValorEntero;
+import AST.Expresion.*;
+import AST.Expresion.Operaciones.*;
 import java_cup.runtime.XMLElement;
 
 /** CUP v0.11b 20160615 (GIT 4ac7450) generated parser.
@@ -182,7 +187,7 @@ class CUP$SParser$actions {
               Object RESULT =null;
 		int start_valleft = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-1)).left;
 		int start_valright = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-1)).right;
-		String start_val = (String)((java_cup.runtime.Symbol) CUP$SParser$stack.elementAt(CUP$SParser$top-1)).value;
+		Nodo start_val = (Nodo)((java_cup.runtime.Symbol) CUP$SParser$stack.elementAt(CUP$SParser$top-1)).value;
 		RESULT = start_val;
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("$START",0, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-1)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -193,7 +198,7 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 1: // ROOT ::= S 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		 System.out.println("Done!");
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("ROOT",0, ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -202,7 +207,7 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 2: // ROOT ::= SALTOS S 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		 System.out.println("Done2!");
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("ROOT",0, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-1)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -211,7 +216,7 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 3: // S ::= S SALTOS INS 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		 
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("S",1, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -220,7 +225,7 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 4: // S ::= INS 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		 
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("S",1, ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -229,8 +234,11 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 5: // INS ::= print par_open E par_close 
             {
-              String RESULT =null;
-		System.out.println("Print");
+              Nodo RESULT =null;
+		int aleft = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-1)).left;
+		int aright = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-1)).right;
+		Nodo a = (Nodo)((java_cup.runtime.Symbol) CUP$SParser$stack.elementAt(CUP$SParser$top-1)).value;
+		System.out.println(((ValorEntero)a.ejecutar()).getCadena());
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("INS",3, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-3)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
           return CUP$SParser$result;
@@ -238,7 +246,7 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 6: // INS ::= function cor_open E cor_close 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		System.out.println("Function");
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("INS",3, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-3)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -247,7 +255,7 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 7: // INS ::= function cor_open cor_close 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		System.out.println("Funciont2");
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("INS",3, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -256,7 +264,7 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 8: // INS ::= iff par_open par_close cor_open E cor_close 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		System.out.println("If");
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("INS",3, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-5)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -265,7 +273,7 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 9: // SALTOS ::= SALTOS salto 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("SALTOS",4, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-1)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -274,7 +282,7 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 10: // SALTOS ::= salto 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("SALTOS",4, ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -283,14 +291,14 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 11: // E ::= E plus E 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$SParser$stack.elementAt(CUP$SParser$top-2)).value;
+		Nodo a = (Nodo)((java_cup.runtime.Symbol) CUP$SParser$stack.elementAt(CUP$SParser$top-2)).value;
 		int bleft = ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()).left;
 		int bright = ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()).right;
-		String b = (String)((java_cup.runtime.Symbol) CUP$SParser$stack.peek()).value;
-		 System.out.print("+") ;
+		Nodo b = (Nodo)((java_cup.runtime.Symbol) CUP$SParser$stack.peek()).value;
+		 System.out.print("+") ; RESULT = new Suma((Expresion)a,(Expresion)b);
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("E",2, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
           return CUP$SParser$result;
@@ -298,13 +306,13 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 12: // E ::= E minus E 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$SParser$stack.elementAt(CUP$SParser$top-2)).value;
+		Nodo a = (Nodo)((java_cup.runtime.Symbol) CUP$SParser$stack.elementAt(CUP$SParser$top-2)).value;
 		int bleft = ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()).left;
 		int bright = ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()).right;
-		String b = (String)((java_cup.runtime.Symbol) CUP$SParser$stack.peek()).value;
+		Nodo b = (Nodo)((java_cup.runtime.Symbol) CUP$SParser$stack.peek()).value;
 		System.out.print("-") ; 
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("E",2, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -313,13 +321,13 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 13: // E ::= E mult E 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		int aleft = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)).left;
 		int aright = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)).right;
-		String a = (String)((java_cup.runtime.Symbol) CUP$SParser$stack.elementAt(CUP$SParser$top-2)).value;
+		Nodo a = (Nodo)((java_cup.runtime.Symbol) CUP$SParser$stack.elementAt(CUP$SParser$top-2)).value;
 		int bleft = ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()).left;
 		int bright = ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()).right;
-		String b = (String)((java_cup.runtime.Symbol) CUP$SParser$stack.peek()).value;
+		Nodo b = (Nodo)((java_cup.runtime.Symbol) CUP$SParser$stack.peek()).value;
 		 System.out.print("*") ; 
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("E",2, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -328,10 +336,10 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 14: // E ::= par_open E par_close 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		int xleft = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-1)).left;
 		int xright = ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-1)).right;
-		String x = (String)((java_cup.runtime.Symbol) CUP$SParser$stack.elementAt(CUP$SParser$top-1)).value;
+		Nodo x = (Nodo)((java_cup.runtime.Symbol) CUP$SParser$stack.elementAt(CUP$SParser$top-1)).value;
 		 
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("E",2, ((java_cup.runtime.Symbol)CUP$SParser$stack.elementAt(CUP$SParser$top-2)), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
@@ -340,11 +348,11 @@ class CUP$SParser$actions {
           /*. . . . . . . . . . . . . . . . . . . .*/
           case 15: // E ::= num 
             {
-              String RESULT =null;
+              Nodo RESULT =null;
 		int sleft = ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()).left;
 		int sright = ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()).right;
 		String s = (String)((java_cup.runtime.Symbol) CUP$SParser$stack.peek()).value;
-		System.out.print(s); 
+		System.out.print(s); RESULT = new Entero(s);
               CUP$SParser$result = parser.getSymbolFactory().newSymbol("E",2, ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), ((java_cup.runtime.Symbol)CUP$SParser$stack.peek()), RESULT);
             }
           return CUP$SParser$result;
